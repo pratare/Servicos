@@ -22,7 +22,7 @@ public class CartaoService {
 
 
     public Cartao mostrarCartao(String numero) {
-    	Optional<Cartao> cartaoOptional = cartaoRepository.getByNumeroCartao(numero);
+    	Optional<Cartao> cartaoOptional = cartaoRepository.getByNumero(numero);
 
         if(!cartaoOptional.isPresent()) {
             throw new CartaoNotFoundException();

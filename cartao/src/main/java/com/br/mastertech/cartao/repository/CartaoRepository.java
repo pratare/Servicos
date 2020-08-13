@@ -8,6 +8,6 @@ import java.util.Optional;
 
 public interface CartaoRepository extends CrudRepository<Cartao, Integer> {
 	
-	Optional<Cartao> getByNumeroCartao(String numero);
+	Optional<Cartao> getByNumero(String numero);
 
 }
