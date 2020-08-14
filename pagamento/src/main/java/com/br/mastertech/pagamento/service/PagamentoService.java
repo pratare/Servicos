@@ -23,11 +23,9 @@ public class PagamentoService {
 	
 	public Pagamento criarPagamento(Pagamento pagamento) {
 		CartaoDTO cartaoDTO = null;
-		try {
-			cartaoDTO = clientCartao.buscaById(pagamento.getCartaoid());
-		} catch(FeignException.BadRequest e) {
-			throw new CartaoNaoExisteException();
-		}
+
+		cartaoDTO = clientCartao.buscaById(pagamento.getCartaoid());
+
 		if(!cartaoDTO.getAtivo()) {
 			throw new CartaoInativoException();
 		}

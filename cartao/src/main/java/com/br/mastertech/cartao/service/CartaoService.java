@@ -46,6 +46,7 @@ public class CartaoService {
     public Cartao criarCartao(Cartao cartao) {
         Cliente byId = null;
 
+
         cliente.getClienteById(cartao.getClienteId());
 
         cartao.setAtivo(false);

@@ -18,7 +18,7 @@ public class ClienteService {
 	public Cliente buscarCliente(Integer id) {
 		Optional<Cliente> user = clienteRepository.findById(id);
 		if(!user.isPresent()) {
-			throw new UserNotFoundException("id - "+id);
+			throw new UserNotFoundException();
 		}
 		return user.get();
 	}
