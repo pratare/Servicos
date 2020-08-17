@@ -14,7 +14,7 @@ public class FaturaMapper {
         pagamentoSummaryInListResponse.setId(fatura.getId());
         pagamentoSummaryInListResponse.setDescricao(fatura.getDescricao());
         pagamentoSummaryInListResponse.setValor(fatura.getValor());
-        pagamentoSummaryInListResponse.setCartaoId(fatura.getCartaoid());
+        pagamentoSummaryInListResponse.setCartaoId(fatura.getCartaoId());
 
         return pagamentoSummaryInListResponse;
     }

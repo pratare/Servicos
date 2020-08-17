@@ -6,10 +6,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "PAGAMENTO")
-public interface ClientPagamentos {
+@FeignClient(name = "CARTAO", configuration = FaturaClientConfiguration.class)
+public interface ClientCartao {
 
-    @GetMapping("/pagamento/{id_cartao}")
-    public List<PagamentoDTO> buscaById(@PathVariable Integer id_cartao);
-
+    @GetMapping("/cartoes/{id}")
+    public PagamentoDTO buscaById(@PathVariable Integer id_cartao);
 }

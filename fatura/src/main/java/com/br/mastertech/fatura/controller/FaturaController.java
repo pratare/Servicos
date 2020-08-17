@@ -21,16 +21,12 @@ public class FaturaController {
 	FaturaMapper faturaMapper;
 	
 	@GetMapping("/{clientid}/{cartaoid}")
-	public List<FaturaSummaryInListResponse> exibeFatura(@PathVariable Integer clientid, Integer cartaoid) {
+	public List<FaturaSummaryInListResponse> exibeFatura(@PathVariable Integer clientid, @PathVariable Integer cartaoid) {
 		List<Fatura> faturas = faturaService.listFaturaByCartaoId(clientid, cartaoid);
 		List<FaturaSummaryInListResponse> faturaSummaryInListResponseList = faturas.stream()
 				.map(fatura -> faturaMapper.toFaturaSummaryInListResponse(fatura))
 				.collect(Collectors.toList());
 		return faturaSummaryInListResponseList;
-
-//
-//		List<Fatura> faturas = faturaService.listFaturaByCartaoId(clientid, cartaoid);
-//		return faturas;
 	}
 	
 	@PostMapping("/{cliente-id}/{cartao-id}/pagar")

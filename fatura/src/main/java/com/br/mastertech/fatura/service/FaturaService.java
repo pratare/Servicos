@@ -1,7 +1,7 @@
 package com.br.mastertech.fatura.service;
 
 import com.br.mastertech.fatura.client.ClientCliente;
-import com.br.mastertech.fatura.client.ClientPagamentos;
+import com.br.mastertech.fatura.client.ClientCartao;
 import com.br.mastertech.fatura.client.PagamentoDTO;
 import com.br.mastertech.fatura.models.Fatura;
 import com.br.mastertech.fatura.repository.FaturaRepository;
@@ -17,7 +17,7 @@ public class FaturaService {
     FaturaRepository faturaRepository;
 
     @Autowired
-    ClientPagamentos clientPagamentos;
+    ClientCartao clientCartao;
 
     @Autowired
     ClientCliente clientCliente;
@@ -27,7 +27,7 @@ public class FaturaService {
 
         pagamentoDTO = clientCliente.buscaByIdCliente(clientid);
 
-        pagamentoDTO = (PagamentoDTO) clientPagamentos.buscaById(cartaoid);
+        pagamentoDTO = clientCartao.buscaById(cartaoid);
 
         return faturaRepository.findAllByCartaoId(pagamentoDTO.getId());
     }
