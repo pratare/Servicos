@@ -28,17 +28,19 @@ public class AcessoController {
 		return acessoMapper.toAcessoResponse(acesso);
 	}
 	
-	@GetMapping("/{cliente_id},{porta_id}")
-	public AcessoResponse listarAcesso(@PathVariable Integer client_id, Integer porta_id) {
+	@GetMapping("/{cliente_id}/{porta_id}")
+	public AcessoResponse listarAcesso(@PathVariable Integer cliente_id, Integer porta_id) {
+		Acesso acesso = acessoMapper.toAcessoDetalhe(cliente_id, porta_id);
+		acesso = acessoService.consultaAcesso(acesso);
 
-        return null;
+		return acessoMapper.toAcessoResponse(acesso);
+
     }
 
     @DeleteMapping("/{clientid}/{portaid}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public Acesso apagarAcesso(@PathVariable Integer clientid, @PathVariable Integer portaid) {
+	public void apagarAcesso(@PathVariable Integer clientid, @PathVariable Integer portaid) {
 		Acesso acesso = acessoMapper.toAcessoApagar(clientid, portaid);
-		acesso = acessoService.apagarAcesso(acesso);
-		return null;
+		acessoService.apagarAcesso(acesso);
 	}
 }

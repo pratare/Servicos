@@ -9,6 +9,8 @@ import com.br.mastertech.acesso.repository.AcessoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
+
 
 @Component
 public class AcessoService {
@@ -36,7 +38,8 @@ public class AcessoService {
 		 
 	}
 
-	public Acesso apagarAcesso(Acesso acesso) {
+	@Transactional
+	public void apagarAcesso(Acesso acesso) {
 		PortaDTO portaDTO = null;
 		ClienteDTO clienteDTO = null;
 
@@ -44,9 +47,21 @@ public class AcessoService {
 
 		clienteDTO = clientCliente.buscaById(acesso.getClienteId());
 
-		acessoRepository.deleteById(clienteDTO.getId());
+		acessoRepository.removeAllByClienteIdAndPortaId(acesso.getClienteId(), acesso.getPortaId());
+	}
+
+	public Acesso consultaAcesso(Acesso acesso) {
+		PortaDTO portaDTO = null;
+		ClienteDTO clienteDTO = null;
+
+		portaDTO = clientPorta.buscaById(acesso.getPortaId());
+
+		clienteDTO = clientCliente.buscaById(acesso.getClienteId());
+
+		acessoRepository.findAllByClienteIdAndPortaId(acesso.getClienteId(), acesso.getClienteId());
 
 		return acesso;
+
 	}
 	
 }

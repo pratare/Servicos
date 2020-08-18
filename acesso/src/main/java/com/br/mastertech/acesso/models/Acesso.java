@@ -38,4 +38,5 @@ public class Acesso {
 	public void setClienteId(Integer clienteId) {
 		this.clienteId = clienteId;
 	}
+
 }

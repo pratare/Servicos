@@ -32,6 +32,13 @@ public class AcessoMapper {
 		return acesso;
 	}
 
+	public Acesso toAcessoDetalhe(Integer client_id, Integer porta_id) {
+		Acesso acesso = new Acesso();
+		acesso.setPortaId(porta_id);
+		acesso.setClienteId(client_id);
+
+		return acesso;
+	}
 
 	
 }
