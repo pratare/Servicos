@@ -28,9 +28,9 @@ public class AcessoController {
 		return acessoMapper.toAcessoResponse(acesso);
 	}
 	
-	@GetMapping("/{cliente_id}/{porta_id}")
-	public AcessoResponse listarAcesso(@PathVariable Integer cliente_id, Integer porta_id) {
-		Acesso acesso = acessoMapper.toAcessoDetalhe(cliente_id, porta_id);
+	@GetMapping("/{clienteid}/{portaid}")
+	public AcessoResponse listarAcesso(@PathVariable Integer clienteid, @PathVariable Integer portaid) {
+		Acesso acesso = acessoMapper.toAcessoDetalhe(clienteid, portaid);
 		acesso = acessoService.consultaAcesso(acesso);
 
 		return acessoMapper.toAcessoResponse(acesso);
