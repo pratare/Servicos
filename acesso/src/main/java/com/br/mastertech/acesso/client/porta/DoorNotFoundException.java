@@ -1,4 +1,4 @@
-package com.br.mastertech.acesso.client;
+package com.br.mastertech.acesso.client.porta;
 
 
 import org.springframework.http.HttpStatus;

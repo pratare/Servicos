@@ -1,9 +1,9 @@
 package com.br.mastertech.acesso.service;
 
-import com.br.mastertech.acesso.client.ClientCliente;
-import com.br.mastertech.acesso.client.ClientPorta;
-import com.br.mastertech.acesso.client.ClienteDTO;
-import com.br.mastertech.acesso.client.PortaDTO;
+import com.br.mastertech.acesso.client.cliente.ClientCliente;
+import com.br.mastertech.acesso.client.porta.ClientPorta;
+import com.br.mastertech.acesso.client.cliente.ClienteDTO;
+import com.br.mastertech.acesso.client.porta.PortaDTO;
 import com.br.mastertech.acesso.models.Acesso;
 import com.br.mastertech.acesso.repository.AcessoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

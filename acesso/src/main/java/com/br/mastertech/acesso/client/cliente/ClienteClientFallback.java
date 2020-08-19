@@ -1,4 +1,4 @@
-package com.br.mastertech.acesso.client;
+package com.br.mastertech.acesso.client.cliente;
 
 public class ClienteClientFallback implements ClientCliente {
 

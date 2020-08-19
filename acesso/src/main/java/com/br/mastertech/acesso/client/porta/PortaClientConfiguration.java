@@ -1,4 +1,4 @@
-package com.br.mastertech.acesso.client;
+package com.br.mastertech.acesso.client.porta;
 
 import feign.Feign;
 import feign.RetryableException;
@@ -7,11 +7,11 @@ import io.github.resilience4j.feign.FeignDecorators;
 import io.github.resilience4j.feign.Resilience4jFeign;
 import org.springframework.context.annotation.Bean;
 
-public class AcessoClientConfiguration {
+public class PortaClientConfiguration {
 
     @Bean
     public ErrorDecoder getPortaNotFound(){
-        return new AcessoClientDecoder();
+        return new PortaClientDecoder();
     }
 
     @Bean
