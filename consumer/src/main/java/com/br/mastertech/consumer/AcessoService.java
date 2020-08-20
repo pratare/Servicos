@@ -19,14 +19,14 @@ public class AcessoService {
 	public void criaEventoLog(LogAcesso logAcesso) {
 		
 		try {
-			BufferedWriter writer =  new BufferedWriter(new FileWriter("./log-acesso.csv", true));
-			
+			BufferedWriter writer =  new BufferedWriter(new FileWriter("/home/a2w/Documentos/projetos/Servicos/consumer/src/main/java/com/br/mastertech/consumer/logAcesso.csv", true));
+
 			CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT);
-	         		
+				System.out.println(logAcesso != null);
 			 csvPrinter.printRecord(
-					 logAcesso.getClienteId().toString(),
-					 logAcesso.getPortaId().toString(),
-					 logAcesso.possuiAcesso().toString());
+					 logAcesso.getClienteId()+" ",
+					 logAcesso.getPortaId()+" ",
+					 logAcesso.possuiAcesso()+" ");
 	         csvPrinter.flush();  
 	         csvPrinter.close();
 		}catch(Exception e) {

@@ -62,8 +62,12 @@ public class AcessoService {
 
 		if(acesso.getClienteId() != 8){
 			logAcesso.setPossuiAcesso(Boolean.TRUE);
+			logAcesso.setClienteId(acesso.getClienteId());
+			logAcesso.setPortaId(acesso.getPortaId());
 		}else{
 			logAcesso.setPossuiAcesso(Boolean.FALSE);
+			logAcesso.setClienteId(acesso.getClienteId());
+			logAcesso.setPortaId(acesso.getPortaId());
 		}
 		logAcessoProducer.enviarAoKafka(logAcesso);
 
