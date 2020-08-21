@@ -12,7 +12,7 @@ import java.util.List;
 @Component
 public class ContatoMapper {
 
-    public Contato  toContato(ContatoRequest contatoRequest, Integer usuarioId) {
+    public Contato toContato(ContatoRequest contatoRequest, Integer usuarioId) {
         Contato contato = new Contato();
         contato.setNome(contatoRequest.getNome());
         contato.setTelefone(contatoRequest.getTelefone());
