@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @RestController
 @RequestMapping("/cliente")
 public class ClienteController {
@@ -22,7 +24,12 @@ public class ClienteController {
 	private ClienteMapper clienteMapper;
 	
 	@GetMapping("/{id}")
-	public ClienteDetalheResponse exibeCliente(@PathVariable int id) {
+	public ClienteDetalheResponse exibeCliente(@PathVariable int id, Principal principal) {
+
+		System.out.println(">>>>>>>>>>>>>>>>>>");
+		System.out.println(principal.getName());
+		System.out.println(">>>>>>>>>>>>>>>>>>");
+
 		Cliente clienteId = clienteService.buscarCliente(id);
         return clienteMapper.toClienteDetalheResponse(clienteId);
 
